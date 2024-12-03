@@ -1,7 +1,7 @@
 import { posts as initialPosts } from '../data/posts.js'
 import { Card, setClass } from './Card.jsx'
 import style from './MainSection.module.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 
@@ -15,23 +15,49 @@ function filtraTagUnici(array) {
 
 // console.log(filtraTagUnici(postsTags))
 
+const tags = [
+    {
+        id: 1,
+        name: "HTML"
+    },
+    /* ... */
+]
+
 
 export default function MainSection() {
 
     //================= VARIABILI REATTIVE
 
     const [posts, setPosts] = useState(initialPosts);
-    const [author, setAuthor] = useState('');
-    const [title, setTitle] = useState('');
-
+    // const [author, setAuthor] = useState('');
+    // const [title, setTitle] = useState('');
+    const [isActive, setIsActive] = useState(false)
     const [formData, setFormData] = useState({
         title: '',
         author: '',
         image: '',
         isPublished: true,
+        content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit animi unde quasi enim non esse ratione voluptas voluptate, officiis veritatis magni blanditiis possimus nobis cum id inventore corporis deserunt hic.',
         tags: []
 
     });
+
+
+    //==============================================
+
+
+
+    useEffect(() => {
+        if (!formData.isPublished) {
+            setIsActive(true)
+
+        } else {
+            setIsActive(false)
+        }
+
+    }, [formData.isPublished])
+
+
     // ======================================= HANDLE DEL FORM
     function handleFormData(e) {
 
@@ -44,6 +70,8 @@ export default function MainSection() {
                 [e.target.name]: value
             }
         ))
+
+
 
     }
 
@@ -149,6 +177,9 @@ export default function MainSection() {
                             <label htmlFor="isPublished">pubblicato</label>
                             <input type="checkbox" name='isPublished' checked={formData.isPublished} onChange={handleFormData} />
                         </div>
+                        {isActive &&
+                            <div>il post verrà salvato come bozza</div>
+                        }
 
                         <input type="submit" value="Aggiungi post" />
                     </form>
