@@ -36,7 +36,7 @@ export function setClass(el, classe) {
 
 
 
-export function Card({ id = '', title = '', image = '', description = '', tags = [], author = '', deleteFunction = () => { }, onUpdateTitle = () => { } }) {
+export function Card({ id = '', title = '', image = '', description = '', tags = [], author = '', isPublished = true, deleteFunction = () => { }, onUpdateTitle = () => { } }) {
     // console.log(tags)
 
 
@@ -87,6 +87,12 @@ export function Card({ id = '', title = '', image = '', description = '', tags =
                 <div className={style.author}>{`Autore: ${author}`}</div>
                 <Button />
                 <button onClick={deleteFunction}>elimina</button>
+
+                {isPublished ?
+                    <div>Pubblicato</div> :
+                    <div>Draft</div>
+                }
+
 
             </div>
         </div>

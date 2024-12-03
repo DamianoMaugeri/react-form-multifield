@@ -13,7 +13,7 @@ export const posts = [
         content:
             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit animi unde quasi enim non esse ratione voluptas voluptate, officiis veritatis magni blanditiis possimus nobis cum id inventore corporis deserunt hic.',
         tags: ['html', 'css'],
-        published: true,
+        isPublished: true,
         author: 'topolino'
     },
     {
@@ -23,7 +23,7 @@ export const posts = [
         content:
             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit animi unde quasi enim non esse ratione voluptas voluptate, officiis veritatis magni blanditiis possimus nobis cum id inventore corporis deserunt hic.',
         tags: ['js', 'css'],
-        published: true,
+        isPublished: true,
         author: 'paperino'
     },
     {
@@ -33,7 +33,7 @@ export const posts = [
         content:
             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit animi unde quasi enim non esse ratione voluptas voluptate, officiis veritatis magni blanditiis possimus nobis cum id inventore corporis deserunt hic.',
         tags: ['js', 'php'],
-        published: false,
+        isPublished: false,
         author: 'pluto'
     },
     {
@@ -43,7 +43,7 @@ export const posts = [
         content:
             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit animi unde quasi enim non esse ratione voluptas voluptate, officiis veritatis magni blanditiis possimus nobis cum id inventore corporis deserunt hic.',
         tags: [],
-        published: true,
+        isPublished: true,
         author: 'pippo'
     },
 ]
